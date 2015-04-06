@@ -1,9 +1,3 @@
-# Arch-Linux
-This repository contains scripts, configuration files, and Arch Linux installation guide
-
---
-
-
 ## Table of Contents
 
 1. **[Install Arch Linux](https://github.com/sayems/Arch-Linux/wiki/Install-Arch-Linux)**
