@@ -1,5 +1,3 @@
-## Table of Contents
-
 1. **[Install Arch Linux](https://github.com/sayems/Arch-Linux/wiki/Install-Arch-Linux)**
   - **[Setup](https://github.com/sayems/Arch-Linux/wiki/Install-Arch-Linux)**
 3. **[Setup MySQL](https://github.com/sayems/Arch-Linux/wiki/Install-Arch-Linux)**
