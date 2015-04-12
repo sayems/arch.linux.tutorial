@@ -286,6 +286,16 @@ $ sudo pacman -U albert-*.pkg.tar.xz
 $ cp /usr/share/applications/albert.desktop .config/autostart/
 ```
 
+Make sure you have gnome-session-properties installed
+
+Press & hold    : Alt+F2
+Enter a command : gnome-session-properties
+Enter: close
+
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/add-albert-autostart.png)
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/albert-autostart.png)
+
+--
 
 ## How to skip all Yaourt prompts on Arch Linux
 
