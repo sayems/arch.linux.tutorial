@@ -103,7 +103,7 @@ root@arch ~ #  reboot
 ## Setup the system
 
 
-### Setup network, power manager, printer, DNS-SD framework, message bus system
+##### Setup network, power manager, printer, DNS-SD framework, message bus system
 ```
 $ sudo pacman -Sy networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2
 ```
