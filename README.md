@@ -1,5 +1,9 @@
 ## Build Your Arch Linux System From Scratch 
 
+
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/arch.jpg)
+
+
 Arch Linux is a do-it-yourself Linux distro, It’s very popular among linux geeks and developers that like to really get at the nuts and bolts of a system. Arch give you the freedom to make any choice about the system. **It does not come with any pre-installed packages/drivers or graphical installer**, instead It uses a **command line installer**.
 When you boot it up for the first time, you’ll be greeted with a command-line tool. It expects you to perform the entire installation from the command-line and install all the necessary program/driver by yourself and customize it the way you want it — by piecing together the components that you’d like to include on your system. 
 
