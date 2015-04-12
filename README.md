@@ -256,6 +256,35 @@ $ yaourt -S yaourt moka-icon-theme-git
 $ yaourt -S gnome-session-properties
 ```
 
+--
+
+### Setup Albert 
+
+#### Create a albert folder 
+```
+$ mkdir -p ~/temp/albert && cd ~/temp/albert
+```
+
+#### Download sources
+```bash
+$ wget https://raw.githubusercontent.com/ManuelSchneid3r/albert/master/packaging/linux/arch/PKGBUILD
+```
+
+#### Automatically resolve dependencies with pacman
+```bash
+$ makepkg -s
+```
+
+#### install 
+```bash
+$ sudo pacman -U albert-*.pkg.tar.xz
+```
+
+#### Create a autostart program
+
+```bash
+$ cp /usr/share/applications/albert.desktop .config/autostart/
+```
 
 
 ## How to skip all Yaourt prompts on Arch Linux
