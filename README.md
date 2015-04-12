@@ -2,7 +2,7 @@
 
 **WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. Please proceed with caution. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
-Arch linux is targeted to advanced linux users. **It does not provide any graphical installer**, It uses a **command line installer**, and you have to install the packages you want and customize it own specific needs, you won't have any pre-installed packages/drivers. ***You have install all the necessary packages durinng installation ***. So let's get started..
+Arch linux is targeted to advanced linux users. **It does not provide any graphical installer**, It uses a **command line installer**, and you have to install the packages you want and customize it own specific needs, you won't have any pre-installed packages/drivers. ***You have install all the necessary packages durinng installation***. So let's get started..
 
 
 ![Here's a screenshot of my current Arch Linux system](https://github.com/sayems/Arch-Linux/blob/master/screenshot/vanila-desktop.png)
