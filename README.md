@@ -22,6 +22,8 @@ root@arch ~ # cfdisk /dev/sda
 - sda5 - swap **2GB**
 - sda6 - root **18GB** (bootable)
 
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/partition.png)
+
 ```bash
 root@arch ~ # mkfs.ext4  /dev/sda6
 root@arch ~ # mount /dev/sda6 /mnt
