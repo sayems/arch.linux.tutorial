@@ -1,8 +1,8 @@
 ## Build Your Arch Linux System From Scratch 
 
-**WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if this is not done correctly. Please proceed with caution. If you are new to linux I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience. 
+**WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. Please proceed with caution. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
-Arch linux is targeted to advanced linux users. It is more difficult task to install and configure system but also much more rewarding when done correctly. Arch Linux install only provides the bare minimum, you won't have any unnecessary packages/drivers or whatever preinstalled. ***You choose the packages you want to install and the type of system that you want to build***. So let's get started..
+Arch linux is targeted to advanced linux users. **It does not provide any graphical installer**, It uses a **command line installer**, and you have to install the packages you want and customize it own specific needs, you won't have any pre-installed packages/drivers. ***You have install all the necessary packages durinng installation ***. So let's get started..
 
 
 ![Here's a screenshot of my current Arch Linux system](https://github.com/sayems/Arch-Linux/blob/master/screenshot/vanila-desktop.png)
