@@ -116,6 +116,31 @@ $ systemctl enable acpid
 $ systemctl enable avahi-daemon
 ```
 
+#### Alsa install
+
+```bash
+$ sudo pacman -S alsa-utils alsa-plugins alsa-lib pulseaudio-alsa
+$ sudo pacman -S pavucontrol pulseaudio
+```
+
+#### Open sound manager
+```
+$ alsamixer
+```
+
+#### Toggle mute
+```
+$ amixer -q set Master toggle
+```
+#### Volume Down
+```
+$ amixer -q set PCM 2- unmute
+```
+#### Volume Up
+```
+amixer -q set PCM 2+ unmut
+```
+
 ##### Create new user
 
 ```
