@@ -1,5 +1,9 @@
 ## Build Your Arch Linux System From Scratch 
 
+You can create your own Linux system, and customize it the way you want it — by piecing together the components that you’d like to include on your system, perhaps for fun, or to learn more about Linux. You can make your own perfectly customised distro that suits your individual needs, 
+
+If you spend more time programming than you do playing games, you could replace the game packages with your favourite IDE, and remove unnecessary packages/drivers for hardware you'll never need and save disk space. 
+
 **WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. **Please proceed with caution**. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
 Arch linux is targeted to advanced linux users. **It does not provide any graphical installer**, instead It uses a **command line installer**. It also doesn't come with any pre-installed packages/drivers. You have install the packages you want and customize it your own specific needs. So let's get started..
