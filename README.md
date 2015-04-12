@@ -169,6 +169,9 @@ Search for Nvidia driver
 ```
 # pacman –Ss | grep nvidia
 ```
+
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/nvidia-search.png)
+
 Install Nvidia
 ```
 # pacman -S nvidia-340xx
