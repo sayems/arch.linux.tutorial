@@ -127,8 +127,6 @@ Install Cinnamon Desktop Enviroment
 # sudo systemctl enable gdm
 ```
 
-
-
 #### OR
 
 Install GNOME Desktop Environment
@@ -138,9 +136,62 @@ Install GNOME Desktop Environment
 # sudo systemctl enable gdm
 ```
 
+
+## Enable multilib repository
+```
+# nano /etc/pacman.conf
+```
+Scroll down and un-comment the ‘multilib’ repo:
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+```
+# pacman -Sy
+```
+
+
+## Install Software
+
+```
+# pacman -S firefox, terminator, vlc, skype, synergy, sublime-text
+```
+
+
 ### Reboot System
 ```
 # reboot
+```
+
+
+### Yaourt
+
+```
+$ sudo gedit /etc/pacman.conf
+```
+
+Add Yaourt repository:
+
+```
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+```
+run:
+```
+$ pacman -Sy yaourt
+```
+
+
+Install AUR Packages
+
+```
+$ yaourt -S ttf-ms-fonts
+$ yaourt -S ttf-ms-fonts
+$ yaourt -S
+$ yaourt -S
+$ yaourt -S
 ```
 
 
