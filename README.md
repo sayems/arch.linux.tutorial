@@ -1,3 +1,6 @@
+
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/vanila-desktop.png)
+
 ## Prepare the hard drives
 
 Run this command:
