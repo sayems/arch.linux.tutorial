@@ -82,6 +82,69 @@ root@arch ~ # umount /mnt
 root@arch ~ #  reboot
 ```
 
+--
+
+## Setup the system
+
+##### Create new user
+
+```
+# useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash sayem
+# passwd sayem
+```
+
+```
+# EDITOR=nano visudo
+```
+Uncomment this line in this file:
+```
+%wheel ALL=(ALL) ALL
+```
+
+```
+# pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils mesa
+```
+Select Option #2  Nvidia 340xx package
+
+```
+# pacman -S xorg-twm xterm xorg-xclock
+```
+
+Search for Nvidia driver
+```
+# pacman –Ss | grep nvidia
+```
+Install Nvidia
+```
+# pacman -S nvidia-340xx
+# nvidia-xconfig
+```
+
+Install Cinnamon Desktop Enviroment
+```
+# sudo pacman -S cinnamon nemo-fileroller
+# sudo pacman –S gdm
+# sudo systemctl enable gdm
+```
+
+
+
+#### OR
+
+Install GNOME Desktop Environment
+
+```
+# sudo pacman -S gnome gnome-extra
+# sudo systemctl enable gdm
+```
+
+### Reboot System
+```
+# reboot
+```
+
+
+
 ## How to skip all Yaourt prompts on Arch Linux
 
 [Yaourt](https://wiki.archlinux.org/index.php/yaourt) is probably the best tool to automatically download and install packages from the [Arch User Repository](https://aur.archlinux.org/), also known as AUR. It’s really powerful; however, by default, it prompts you a **LOT** for confirmations of different things, such as checking if you want to install something, if you want to edit the `PKGBUILD`, etc. As a result, Yaourt is pretty annoying if you’re used to the hands-free nature of most other package managers.
