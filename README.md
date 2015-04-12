@@ -188,10 +188,17 @@ Install AUR Packages
 
 ```
 $ yaourt -S ttf-ms-fonts
-$ yaourt -S ttf-ms-fonts
-$ yaourt -S
-$ yaourt -S
-$ yaourt -S
+$ yaourt -S fontconfig-ubuntu
+$ yaourt -S freetype2-ubuntu
+$ yaourt -S ttf-noto
+$ yaourt -S ttf-mac-fonts
+$ yaourt -S ttf-tahoma
+$ yaourt -S jdk
+$ yaourt -S intellij-idea-ultimate-edition
+$ yaourt -S ubuntu-themes
+$ yaourt -S spotify
+$ yaourt -S yaourt moka-icon-theme-git
+$ yaourt -S gnome-session-properties
 ```
 
 
