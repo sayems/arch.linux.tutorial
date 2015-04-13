@@ -9,7 +9,7 @@ When you boot it up for the first time, you’ll be greeted with a command-line 
 
 Arch Linux is a really good way to learn what's going on inside a Linux box. You can learn a lot just from the installation process. I am going to walk through the base install, as well as several common post-install things like setting up networking, sound, mounts, X11 and video drivers, and adding users. I am not going to go in great detail on each step, so if you don't know how to do a certain step you may need to seek references elsewhere. 
 
-I'll also show you some advance tips, tricks and tweaks on how to customize a GNOME 3 desktop, that is, take a plain-vanilla GNOME Shell and transform it into a desktop that is a little bit more user-friendly. Which means installing and customizing a few GNOME Extensions directly from ![GNOME extensions](http://extensions.gnome.org) or by using the GNOME Tweak (Tool).
+I'll also show you some tips, tricks and tweaks on how you can change the way the GNOME desktop looks and feel to suit your own personal tastes, that is, take a plain-vanilla GNOME Shell and transform it into a desktop that you like. 
 
 **WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. **Please proceed with caution**. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
