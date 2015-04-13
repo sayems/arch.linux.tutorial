@@ -14,6 +14,8 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 **WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. **Please proceed with caution**. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
 
+Here's a screenshot of my desktop, built just the way I want it
+
 ![Here's a screenshot of my current Arch Linux system](https://github.com/sayems/Arch-Linux/blob/master/screenshot/vanila-desktop.png)
 
 
