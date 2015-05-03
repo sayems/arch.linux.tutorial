@@ -374,7 +374,33 @@ The third and last line will skip the messages asking if you want to edit the `P
 
 When you’re done doing this, Yaourt should now stop being a pain to use. Have fun with your hands-free installs!
 
+--
 
+### Arch Linux Pacman 
+
+In Arch Linux softwares can be installed easily from the terminal by using pacman and you also use pacman to uninstall them( if you want to install softwares from the AUR, you can use packer). However, most linux softwares always come with many dependencies so if you just use the command pacman -R packagename to remove the application, there will always be a lot of orphan packages left around. The proper command to remove a linux software in Arch Linux should be:
+
+```
+ sudo pacman -Rns packagename 
+``` 
+
+This command will remove the package and its dependencies and all the settings of the application.
+
+If you dont already know this tip, chances that there are still many orphan packages in your Arch linux box. To check if you have any orphan package, use the following command:
+
+```
+ sudo pacman -Qdt
+```  
+
+This command will display a list of orphan packages. To remove these packages, you can use the following command:
+
+```
+sudo pacman -Rns $(pacman -Qdtq) 
+```
+
+After that, all the orphan dependencies will be wiped out.
+
+Note: In Arch Linux softwares will be updated very frequently so to keep your system clean, you should also use the command sudo pacman -Scc to clean cache and outdated packages. (But only do so after you make sure the new packages are working nicely. If they are not, you still need the old packages to downgrade)
 
 
 
