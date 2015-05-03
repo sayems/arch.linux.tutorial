@@ -295,6 +295,7 @@ $ sudo pacman -U albert-*.pkg.tar.xz
 #### Create a autostart program
 
 ```bash
+$ cd
 $ cp /usr/share/applications/albert.desktop .config/autostart/
 ```
 
