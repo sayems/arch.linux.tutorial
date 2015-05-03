@@ -270,6 +270,37 @@ $ yaourt -S gnome-session-properties
 
 --
 
+###Install MySQL
+
+To install MySQL, open terminal and type in these commands:
+
+```
+$ yaourt  mysql 
+```
+select mysql package and install it
+
+ Once you have installed MySQL, start it running
+ ```
+$ sudo systemctl start mysqld
+```
+
+Finish up by running the MySQL set up script:
+```
+$ sudo mysql_secure_installation
+```
+
+Enable Autostart
+```
+$ sudo systemctl enable mysqld
+```
+
+Install MySQL Workbench
+```
+$ sudo pacman -S mysql-workbench
+```
+
+--
+
 ### Setup Network File System (NFS)
 
 Installation
