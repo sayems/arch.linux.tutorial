@@ -317,6 +317,41 @@ Click on "Add" Button
 ```
 --
 
+### Beautify Grub 2 Boot Loader by Installing Themes
+
+By default, Arch Linux boot loader grub doesn’t use any theme. You can customize theme. Here’s a simple guide installing Grub2 themes (background, logos, fonts, scroll bar, etc).
+
+**Download Archlinux theme from AUR:**  
+Archxion: [grub2-theme-archxion](https://aur.archlinux.org/packages.php?ID=59370)  
+Archlinux: [grub2-theme-archlinux](https://aur.archlinux.org/packages.php?ID=59643)
+
+```
+$ yaourt -S grub2-theme-archxion
+$ yaourt -S grub2-theme-archlinux
+```
+
+**Edit your /etc/default/grub and change line:**  
+
+```
+$ sudo subl /etc/default/grub
+```
+<code>\#GRUB_THEME="/path/to/gfxtheme"  
+to  
+GRUB_THEME="/boot/grub/themes/Archxion/theme.txt"  
+or  
+GRUB_THEME="/boot/grub/themes/Archlinux/theme.txt"</code>
+
+**The resolution the theme was designed to show best at 1024x768:**  
+<code>GRUB_GFXMODE=auto  
+to  
+GRUB_GFXMODE=1024x768</code>  
+
+**Update grub configuration:**  
+<code>\# grub-mkconfig -o /boot/grub/grub.cfg</code>
+
+--
+
+
 ## How to skip all Yaourt prompts on Arch Linux
 
 [Yaourt](https://wiki.archlinux.org/index.php/yaourt) is probably the best tool to automatically download and install packages from the [Arch User Repository](https://aur.archlinux.org/), also known as AUR. It’s really powerful; however, by default, it prompts you a **LOT** for confirmations of different things, such as checking if you want to install something, if you want to edit the `PKGBUILD`, etc. As a result, Yaourt is pretty annoying if you’re used to the hands-free nature of most other package managers.
