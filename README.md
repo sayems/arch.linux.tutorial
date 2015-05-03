@@ -270,6 +270,37 @@ $ yaourt -S gnome-session-properties
 
 --
 
+### Setup Network File System (NFS)
+
+Installation
+```
+$ pacman -S nfs-utils 
+```
+
+Start server
+```
+$ sudo systemctl enable rpcbind.service
+$ sudo systemctl start rpcbind.service
+$ sudo systemctl enable nfs-client.target
+$ sudo systemctl start nfs-client.target
+$ sudo systemctl start remote-fs.target
+```
+
+Manual mounting
+Show the server's exported file systems:
+```
+$ showmount -e DiskStation 
+```
+
+Then mount omitting the server's NFS export root:
+```
+# sudo mount -t nfs DiskStation:/volume1/video /home/sayem/Videos
+```
+(Make sure Videos folder exist in /sayem/home/Videos)
+
+
+--
+
 ### Setup Albert 
 
 #### Create a albert folder 
@@ -401,52 +432,5 @@ sudo pacman -Rns $(pacman -Qdtq)
 After that, all the orphan dependencies will be wiped out.
 
 Note: In Arch Linux softwares will be updated very frequently so to keep your system clean, you should also use the command sudo pacman -Scc to clean cache and outdated packages. (But only do so after you make sure the new packages are working nicely. If they are not, you still need the old packages to downgrade)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
