@@ -329,6 +329,45 @@ Then mount omitting the server's NFS export root:
 ```
 (Make sure Videos folder exist in /sayem/home/Videos)
 
+--
+
+### Install OpenConnect (Cisco AnyConnect)
+
+Install the networkmanager-openconnect package from the Official repositories
+```
+$ sudo pacman -S networkmanager-openconnect
+```
+
+Download a more up-to-date script that OpenConnect will use to setup routing and DNS information (the only difference, currently, between this script and the one that comes with vpnc is using /usr/sbin/resolvconf instead of /sbin/resolvconf, there should be an AUR package for this eventually):
+
+```
+# wget http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/HEAD:/vpnc-script
+```
+Replace references to /sbin/resolvconf with /usr/bin/resolvconf:
+```
+$ sed -i 's/\/sbin\/resolvconf/\/usr\/bin\/resolvconf/g' vpnc-script
+```
+Make it executable:
+```
+$ chmod +x vpnc-script
+```
+Now run OpenConnect as root with the script downloaded above, and provide the gateway:
+```
+$ sudo openconnect --script ./vpnc-script https://vpn.system.com
+```
+It will ask you to enter GROUP Name:
+```
+Please enter your username and password.
+GROUP: [User|Manager]: 
+```
+then,
+```
+Please enter your username and password.
+Username:
+Password:
+```
+
+Use ctrl-c to close and tear down the vpn connection.
 
 --
 
