@@ -477,6 +477,15 @@ When you’re done doing this, Yaourt should now stop being a pain to use. Have 
 
 --
 
+
+### Upgrade Foreign packages
+
+```
+yaourt -Syua
+```
+
+--
+
 ### Arch Linux Pacman 
 
 In Arch Linux softwares can be installed easily from the terminal by using pacman and you also use pacman to uninstall them( if you want to install softwares from the AUR, you can use packer). However, most linux softwares always come with many dependencies so if you just use the command pacman -R packagename to remove the application, there will always be a lot of orphan packages left around. The proper command to remove a linux software in Arch Linux should be:
