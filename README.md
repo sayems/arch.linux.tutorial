@@ -371,6 +371,22 @@ Use ctrl-c to close and tear down the vpn connection.
 
 --
 
+### Android Development
+
+```bash
+yaourt -S android-studio
+```
+
+```bash
+yaourt -S genymotion
+```
+
+```bash
+sudo pacman -S virtualbox-host-dkms
+````
+
+--
+
 ### Setup Albert 
 
 #### Create a albert folder 
