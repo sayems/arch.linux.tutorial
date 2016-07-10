@@ -31,7 +31,7 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 13. **[Update and Upgrade AUR packages with Yaourt](#upgrade-foreign-packages)**
 14. **[Arch Linux Pacman tutorial](#arch-linux-pacman)**
 
-
+--
 
 Here's a screenshot of my desktop, built just the way I want it
 
