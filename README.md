@@ -301,6 +301,39 @@ $ sudo pacman -S mysql-workbench
 
 --
 
+### Setup Printer
+
+Install Brother HL-2270DW series driver
+
+```bash
+yaourt -S brother-hl2270dw
+```
+Install Brother MFC-J470DW driver
+```bash
+yaourt -S brother-mfc-j470dw
+```
+
+Install Cups libraries
+
+```bash
+yaourt -S libcups
+pacman -S cups cups-filters ghostscript gsfonts
+```
+
+Enable cups so it starts with system boot
+```bash
+systemctl enable org.cups.cupsd.service
+systemctl daemon-reload
+```
+
+Start CUPS
+```bash
+systemctl start org.cups.cupsd.service
+```
+
+Open the CUPS interface from this URL (http://localhost:631/admin) and log in as root. Here you can add and configure your printer.
+
+--
 ### Setup Network File System (NFS)
 
 Installation
