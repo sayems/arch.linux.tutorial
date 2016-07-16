@@ -251,7 +251,7 @@ Include = /etc/pacman.d/mirrorlist
 ```
 
 
-### Yaourt
+# Yaourt
 
 ```
 $ sudo gedit /etc/pacman.conf
@@ -287,9 +287,52 @@ $ yaourt -S yaourt moka-icon-theme-git
 $ yaourt -S gnome-session-properties
 ```
 
+### Yaourt: No space left on device 
+
+```
+sudo nano /etc/yaourtrc
+```
+
+Change yaourt defualt folder to ~/home/tmp folder
+```
+# TMPDIR="/tmp"
+TMPDIR="/home/$USER/tmp"
+```
+
+## How to skip all Yaourt prompts on Arch Linux
+
+[Yaourt](https://wiki.archlinux.org/index.php/yaourt) is probably the best tool to automatically download and install packages from the [Arch User Repository](https://aur.archlinux.org/), also known as AUR. It’s really powerful; however, by default, it prompts you a **LOT** for confirmations of different things, such as checking if you want to install something, if you want to edit the `PKGBUILD`, etc. As a result, Yaourt is pretty annoying if you’re used to the hands-free nature of most other package managers.
+
+As it turns out, there is a file you can create called `~/.yaourtrc` that can change the behavior of Yaourt.
+
+To turn off all of the prompts, type the following into a new file called `~/.yaourtrc`:
+
+```
+NOCONFIRM=1
+BUILD_NOCONFIRM=1
+EDITFILES=0
+```
+
+The first line will skip the messages confirming if you really want to install the package.
+
+The second line will skip the messages asking you if you want to continue the build.
+
+The third and last line will skip the messages asking if you want to edit the `PKGBUILD` files.
+
+When you’re done doing this, Yaourt should now stop being a pain to use. Have fun with your hands-free installs!
+
 --
 
-###Install MySQL
+
+### Upgrade Foreign packages
+
+```
+yaourt -Syua
+```
+
+--
+
+#Install MySQL
 
 To install MySQL, open terminal and type in these commands:
 
@@ -320,7 +363,7 @@ $ sudo pacman -S mysql-workbench
 
 --
 
-### Setup Printer
+# Setup Printer
 
 Install Brother HL-2270DW series driver
 
@@ -353,7 +396,7 @@ systemctl start org.cups.cupsd.service
 Open the CUPS interface from this URL (http://localhost:631/admin) and log in as root. Here you can add and configure your printer.
 
 --
-### Setup Network File System (NFS)
+# Setup Network File System (NFS)
 
 Installation
 ```
@@ -517,40 +560,6 @@ GRUB_GFXMODE=1024x768</code>
 
 **Update grub configuration:**  
 <code>\# grub-mkconfig -o /boot/grub/grub.cfg</code>
-
---
-
-
-## How to skip all Yaourt prompts on Arch Linux
-
-[Yaourt](https://wiki.archlinux.org/index.php/yaourt) is probably the best tool to automatically download and install packages from the [Arch User Repository](https://aur.archlinux.org/), also known as AUR. It’s really powerful; however, by default, it prompts you a **LOT** for confirmations of different things, such as checking if you want to install something, if you want to edit the `PKGBUILD`, etc. As a result, Yaourt is pretty annoying if you’re used to the hands-free nature of most other package managers.
-
-As it turns out, there is a file you can create called `~/.yaourtrc` that can change the behavior of Yaourt.
-
-To turn off all of the prompts, type the following into a new file called `~/.yaourtrc`:
-
-```
-NOCONFIRM=1
-BUILD_NOCONFIRM=1
-EDITFILES=0
-```
-
-The first line will skip the messages confirming if you really want to install the package.
-
-The second line will skip the messages asking you if you want to continue the build.
-
-The third and last line will skip the messages asking if you want to edit the `PKGBUILD` files.
-
-When you’re done doing this, Yaourt should now stop being a pain to use. Have fun with your hands-free installs!
-
---
-
-
-### Upgrade Foreign packages
-
-```
-yaourt -Syua
-```
 
 --
 
