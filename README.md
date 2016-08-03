@@ -288,6 +288,8 @@ $ yaourt -S yaourt moka-icon-theme-git
 $ yaourt -S gnome-session-properties
 ```
 
+![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/aur-packages.png)
+
 ### Yaourt: No space left on device 
 
 ```
