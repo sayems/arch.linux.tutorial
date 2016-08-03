@@ -21,6 +21,7 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
   - **[configuration-the-installation](#configuration-the-installation)**
 4. **[Install Software](##install-software)**
 5. **[Setup Yaourt](#yaourt)**
+6. **[Getting Started with docker](#getting-started-with-docker)**
 6. **[Setup MySQL](#install-mysql)**
 7. **[Setup Printer](#setup-printer)**
 8. **[Setup NFS with Synology](#setup-network-file-system-nfs)**
@@ -329,6 +330,45 @@ When you’re done doing this, Yaourt should now stop being a pain to use. Have 
 ```
 yaourt -Syua
 ```
+
+--
+
+
+# Getting Started with docker
+
+### Installation
+
+For the normal package a simple
+```bash
+$ sudo pacman -S docker
+```
+is all that is needed.
+
+For the AUR package execute:
+```bash
+$ sudo yaourt -S docker-git
+```
+The instructions here assume yaourt is installed. See [Arch User Repository](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages) for information on building and installing packages from the AUR if you have not done so before.
+
+### Starting Docker
+
+There is a systemd service unit created for docker. To start the docker service:
+
+```bash
+$ sudo systemctl start docker
+```
+To start on system boot:
+
+```bash
+$ sudo systemctl enable docker
+```
+
+Add user to the docker group
+```bash
+$ sudo usermod -aG docker sayem
+```
+
+Logout and login as the user
 
 --
 
