@@ -22,6 +22,8 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 4. **[Install Software](##install-software)**
 5. **[Setup Yaourt](#yaourt)**
 6. **[Getting Started with docker](#getting-started-with-docker)**
+  - **[Create a machine](#create-a-machine)**
+  - **[Run containers](#run-containers)**
 6. **[Setup MySQL](#install-mysql)**
 7. **[Setup Printer](#setup-printer)**
 8. **[Setup NFS with Synology](#setup-network-file-system-nfs)**
@@ -371,6 +373,101 @@ $ sudo usermod -aG docker sayem
 ```
 
 Logout and login as the user
+
+## Create a machine
+
+1. Open a command shell or terminal window.
+These command examples shows a Bash shell. For a different shell, such as C Shell, the same commands are the same except where noted.
+
+2. Use docker-machine ls to list available machines.
+In this example, no machines have been created yet.
+
+```bash
+$ docker-machine ls
+NAME   ACTIVE   DRIVER   STATE   URL   SWARM   DOCKER   ERRORS
+```
+
+3. Create a machine.
+
+Run the ```docker-machine create``` command, passing the string ```virtualbox``` to the ```--driver``` flag. The final argument is the name of the machine. If this is your first machine, name it ```default```. If you already have a “default” machine, choose another name for this new machine.
+
+```bash
+$ docker-machine create --driver virtualbox default
+Running pre-create checks...
+Creating machine...
+(staging) Copying /Users/ripley/.docker/machine/cache/boot2docker.iso to /Users/ripley/.docker/machine/machines/default/boot2docker.iso...
+(staging) Creating VirtualBox VM...
+(staging) Creating SSH key...
+(staging) Starting the VM...
+(staging) Waiting for an IP...
+Waiting for machine to be running, this may take a few minutes...
+Machine is running, waiting for SSH to be available...
+Detecting operating system of created instance...
+Detecting the provisioner...
+Provisioning with boot2docker...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+Checking connection to Docker...
+Docker is up and running!
+To see how to connect Docker to this machine, run: docker-machine env default
+```
+
+This command downloads a lightweight Linux distribution [(boot2docker)](https://github.com/boot2docker/boot2docker) with the Docker daemon installed, and creates and starts a VirtualBox VM with Docker running.
+
+4. List available machines again to see your newly minted machine.
+
+```bash
+$ docker-machine ls
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER   ERRORS
+default   *        virtualbox   Running   tcp://192.168.99.187:2376           v1.9.1
+```
+5. Get the environment commands for your new VM.
+As noted in the output of the ```docker-machine create``` command, you need to tell Docker to talk to the new machine. You can do this with the ```docker-machine env``` command.
+
+```bash
+$ docker-machine env default
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://172.16.62.130:2376"
+export DOCKER_CERT_PATH="/Users/<yourusername>/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell:
+# eval "$(docker-machine env default)"
+```
+
+6. Connect your shell to the new machine.
+
+```bash
+$ eval "$(docker-machine env default)"
+```
+
+## Run containers
+
+Run a container with ```docker run``` to verify your set up.
+
+1. Use ```docker run``` to download and run ```busybox``` with a simple ‘echo’ command.
+
+```bash
+$ docker run busybox echo hello world
+Unable to find image 'busybox' locally
+Pulling repository busybox
+e72ac664f4f0: Download complete
+511136ea3c5a: Download complete
+df7546f9f060: Download complete
+e433a6c5b276: Download complete
+hello world
+```
+
+2. Get the host IP address.
+
+Any exposed ports are available on the Docker host’s IP address, which you can get using the docker-machine ip command:
+
+```bash
+$ docker-machine ip default
+192.168.99.100
+```
+
+You can create and manage as many local VMs running Docker as you please; just run ```docker-machine create``` again. All created machines will appear in the output of ```docker-machine ls```.
 
 --
 
