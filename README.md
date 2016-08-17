@@ -33,7 +33,9 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 12. **[How to skip all Yaourt prompts on Arch Linux](#how-to-skip-all-yaourt-prompts-on-arch-linux)**
 13. **[Update and Upgrade AUR packages with Yaourt](#upgrade-foreign-packages)**
 14. **[Arch Linux Pacman tutorial](#arch-linux-pacman)**
-
+15. **[C# Development](#c-development)**
+    - **[Setup Visual Studio Code](#setup-visual-studio-code)**
+    - **[Install C# Extension](#setup-c-extension)**
 --
 
 Here's a screenshot of my desktop, built just the way I want it
@@ -728,4 +730,6 @@ After that, all the orphan dependencies will be wiped out.
 
 Note: In Arch Linux softwares will be updated very frequently so to keep your system clean, you should also use the command sudo pacman -Scc to clean cache and outdated packages. (But only do so after you make sure the new packages are working nicely. If they are not, you still need the old packages to downgrade)
 
+
+## C# Development
 
