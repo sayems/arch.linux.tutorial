@@ -35,7 +35,8 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 14. **[Arch Linux Pacman tutorial](#arch-linux-pacman)**
 15. **[C# Development](#c-development)**
     - **[Setup Visual Studio Code](#setup-visual-studio-code)**
-    - **[Install C# Extension](#setup-c-extension)**
+    - **[Install C# Extension](#install-c-extension)**
+  
 --
 
 Here's a screenshot of my desktop, built just the way I want it
@@ -730,6 +731,43 @@ After that, all the orphan dependencies will be wiped out.
 
 Note: In Arch Linux softwares will be updated very frequently so to keep your system clean, you should also use the command sudo pacman -Scc to clean cache and outdated packages. (But only do so after you make sure the new packages are working nicely. If they are not, you still need the old packages to downgrade)
 
+--
+
 
 ## C# Development
 
+### Setup Visual Studio Code
+
+### Install C# Extension
+
+From inside Visual Studio Code, press ```Ctrl + p``` to bring up the Quick Open bar, and type in ```ext install csharp```. This installs the extension C# for Visual Studio Code [Details for the extension here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+
+### Build and Run a Project
+
+Open Terminal:
+
+```
+$ mkdir ~/vscode
+$ cd ~/vscode
+$ dotnet new
+````
+Now open visual studio code editor
+
+If you get this error message:
+````
+[ERROR] Could not locate an OmniSharp server that supports your Linux distribution.
+
+OmniSharp provides a richer C# editing experience, with features like IntelliSense and Find All References.
+It is recommend that you download the version of OmniSharp that runs on Mono using the following steps:
+    1. If it's not already installed, download and install Mono (https://www.mono-project.com)
+    2. Download and untar the latest OmniSharp Mono release from  https://github.com/OmniSharp/omnisharp-roslyn/releases/
+    3. In Visual Studio Code, select Preferences->User Settings to open settings.json.
+    4. In settings.json, add a new setting: "csharp.omnisharp": "/path/to/omnisharp/OmniSharp.exe"
+    4. In settings.json, add a new setting: "csharp.omnisharpUsesMono": true
+    5. Restart Visual Studio Code.
+```
+Download OmniSharp
+
+```
+$ yaourt -S omnisharp
+```
