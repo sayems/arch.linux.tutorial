@@ -41,6 +41,7 @@ Table of Contents
     - [Reboot the system](https://github.com/sayems/arch.linux.tutorial#reboot-the-system)
 - [Post Installation](https://github.com/sayems/arch.linux.tutorial#post-installation)
     - [Desktop Environment](https://github.com/sayems/arch.linux.tutorial/#desktop-environment)
+    - [Ricing Arch Linux](https://github.com/sayems/arch.linux.tutorial/wiki/Desktop-Customization)
     - [Create new user](https://github.com/sayems/arch.linux.tutorial#create-new-user)
     - [Network Manager and Services](https://github.com/sayems/arch.linux.tutorial#network-manager-and-services)
     - [Enable multilib repository](https://github.com/sayems/arch.linux.tutorial#enable-multilib-repository)
