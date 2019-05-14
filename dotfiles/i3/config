@@ -128,33 +128,41 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [title="alsamixer"]                  floating enable border pixel 1
+for_window [class="Calamares"]                  floating enable border normal
+for_window [class="Clipgrab"]                   floating enable
+for_window [title="File Transfer*"]             floating enable
+for_window [class="Galculator"]                 floating enable border pixel 1
+for_window [class="GParted"]                    floating enable border normal
+for_window [title="i3_help"]                    floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
+for_window [class="Lxappearance"]               floating enable sticky enable border normal
+for_window [class="Manjaro-hello"]              floating enable
+for_window [class="Manjaro Settings Manager"]   floating enable border normal
+for_window [title="MuseScore: Play Panel"]      floating enable
+for_window [class="Nitrogen"]                   floating enable sticky enable border normal
+for_window [class="Oblogout"]                   fullscreen enable
+for_window [class="octopi"]                     floating enable
+for_window [title="About Pale Moon"]            floating enable
+for_window [class="Pamac-manager"]              floating enable
+for_window [class="Pavucontrol"]                floating enable
+for_window [class="qt5ct"]                      floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"]               floating enable sticky enable border normal
+for_window [class="Simple-scan"]                floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
+for_window [class="Skype"]                      floating enable border normal
+for_window [class="Thus"]                       floating enable border normal
+for_window [class="Timeset-gui"]                floating enable border normal
+for_window [class="(?i)virtualbox"]             floating enable border normal
+for_window [class="Xfburn"]                     floating enable
+# set specific windows to floating mode
+for_window [window_role="app"]                  floating enable border normal
+for_window [window_role="pop-up"]               floating enable border normal
+for_window [window_role="task_dialog"]          floating enable border normal
+for_window [title="Preferences$"]               floating enable border normal
+for_window [class="Nautilus"]                   floating enable border normal
+for_window [title="Hangouts"]                   floating enable border normal
+for_window [class="Slack"]                      floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -213,7 +221,7 @@ mode "resize" {
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id compton
-# exec --no-startup-id xfce4-power-manager
+exec --no-startup-id mate-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
@@ -272,13 +280,11 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# set power-manager and volume control
-exec --no-startup-id mate-power-manager
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
-
-# touchpad on and off controller on laptop with Fn+<touchpad control functional key>
-bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
-bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
+# volume control
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute  
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute  
+bindsym XF86AudioMute exec amixer -q set Master mute  
+bindsym XF86AudioPlay exec playerctl play-pause  
+bindsym XF86AudioNext exec playerctl next  
+bindsym XF86AudioPrev exec playerctl previous  
