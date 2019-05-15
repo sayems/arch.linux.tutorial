@@ -163,6 +163,7 @@ for_window [title="Preferences$"]               floating enable border normal
 for_window [class="Nautilus"]                   floating enable border normal
 for_window [title="Hangouts"]                   floating enable border normal
 for_window [class="Slack"]                      floating enable border normal
+for_window [class="calculator"]                 floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
