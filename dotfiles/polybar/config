@@ -1,0 +1,173 @@
+[bar/example]
+monitor = ${env:MONITOR}
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+
+background = #1e1e20
+foreground = #c5c8c6
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Hack Nerd Font:size=10"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+
+modules-left = i3
+modules-center = date
+modules-right = pulseaudio bluetooth powermenu
+
+;tray-position =
+;tray-padding =
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #1e1e20
+label-mode-background = #56737a
+
+label-focused = %index%
+label-focused-background = #2c5159
+label-focused-foreground = #6b7443
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = #56737a
+label-unfocused-foreground = #1e1e20
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = #56737a
+label-visible-foreground = #1e1e20
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = #BA2922
+label-urgent-padding = 2
+
+
+[module/eth]
+type = internal/network
+interface = enp7s0
+interval = 3.0
+
+format-connected-padding = 2
+format-connected-foreground = #80969b
+format-connected-background = #1e1e20
+format-connected-prefix = " "
+format-connected-prefix-foreground = #80969b
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %a"
+date-alt = " %A, %B %d, %Y"
+time = "%I:%M %p"
+time-alt = ${self.time}
+
+format-prefix = 
+format-foreground = 
+format-background = 
+format-padding = 2 
+
+label = %{F#fff}%date%%{F-} %{F#fff}%time%%{F-}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = %{F#F44336}
+label-open-foreground = #56737a
+label-close = %{F#8BC34A} Cancel
+label-close-foreground = #56737a
+label-separator = %{F#FFC107}|
+label-separator-foreground = #80969b
+
+menu-0-0 = %{F#FF9800} Reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = %{F#F44336} Poweroff
+menu-0-1-exec = menu-open-2
+menu-0-2 = %{F#CDDC39} Logout
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = log off
+menu-3-0-exec = pkill -KILL -u $USER
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+# sink=alsa_output.usb-Harman_Multimedia_JBL_Pebbles_1.0.0-00.analog-stereo
+sink=bluez_sink.E9_08_EF_82_B7_95.a2dp_sink
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 
+label-muted-foreground = #66
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/bluetooth]
+type = custom/script
+interval = 5
+
+exec = ~/.config/polybar/bluetooth.sh

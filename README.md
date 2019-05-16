@@ -1,3 +1,5 @@
+
+
 ## Build Your Arch Linux System From Scratch 
 
 
@@ -13,31 +15,68 @@ I'll also show you some tips, tricks and tweaks on how you can change the way th
 
 **WARNING**: There is a very **HIGH** chance you can destroy other operating systems or partition, if you don't do it right. **Please proceed with caution**. If you are new to Linux world I HIGHLY suggest you start off with a distro like Ubuntu or Mint Linux. Ubuntu is designed for people who want an off-the-shelf type system, where all of the choices are already made and the users are expected to sacrifice control for convenience.  
 
+&nbsp;
 
-# Table of Contents
-1. **[Preparation](#prepare-the-hard-drives)**
-2. **[Prepare the storage devices](#prepare-the-hard-drives)**
-  - **[Install the base packages](#installing-system-base)**
-  - **[configuration-the-installation](#configuration-the-installation)**
-4. **[Install Software](##install-software)**
-5. **[Setup Yaourt](#yaourt)**
-6. **[Getting Started with docker](#getting-started-with-docker)**
-  - **[Create a machine](#create-a-machine)**
-  - **[Run containers](#run-containers)**
-6. **[Setup MySQL](#install-mysql)**
-7. **[Setup Printer](#setup-printer)**
-8. **[Setup NFS with Synology](#setup-network-file-system-nfs)**
-9. **[Setup Cisco AnyConnect](#install-openconnect-cisco-anyconnect)**
-10. **[Setup Android Development Environment](#android-development)**
-11. **[Beautify Grub 2 Boot Loader](#beautify-grub-2-boot-loader-by-installing-themes)**
-12. **[How to skip all Yaourt prompts on Arch Linux](#how-to-skip-all-yaourt-prompts-on-arch-linux)**
-13. **[Update and Upgrade AUR packages with Yaourt](#upgrade-foreign-packages)**
-14. **[Arch Linux Pacman tutorial](#arch-linux-pacman)**
-15. **[C# Development](#c-development)**
-    - **[Setup Visual Studio Code](#setup-visual-studio-code)**
-    - **[Install C# Extension](#install-c-extension)**
-  
+Table of Contents
 --
+- [Bootable USB Installer](https://github.com/sayems/arch.linux.tutorial#bootable-usb-installer)
+	- [Linux](#linux)
+	- [MacOS](#macos)
+- [BIOS](#bios)
+- [Pre-installation](https://github.com/sayems/arch.linux.tutorial#pre-installation)
+	- [Setup Keyboard Layout](#set-keyboard-layout)
+	- [Check boot mode](#check-boot-mode)
+	- [Internet Connection](https://github.com/sayems/arch.linux.tutorial#internet-connection)
+    - [Configure the system time](https://github.com/sayems/arch.linux.tutorial#configure-the-system-time)
+    - [Enabling a specific mirror](https://github.com/sayems/arch.linux.tutorial#enabling-a-specific-mirror)
+- [Installation](https://github.com/sayems/arch.linux.tutorial#installation)
+    - [Generate fstab](https://github.com/sayems/arch.linux.tutorial#generate-fstab)
+    - [Arch chroot](https://github.com/sayems/arch.linux.tutorial#chroot)
+- [Configure System](https://github.com/sayems/arch.linux.tutorial#configure-system)
+    - [Configure network](https://github.com/sayems/arch.linux.tutorial#configure-network)
+    - [Locale and Language](https://github.com/sayems/arch.linux.tutorial#locale-and-language)
+    - [Configure hostname](https://github.com/sayems/arch.linux.tutorial#hostname)
+    - [Root password](https://github.com/sayems/arch.linux.tutorial#create-root-password)
+    - [Install the bootloader](https://github.com/sayems/arch.linux.tutorial#install-the-bootloader)
+    - [Reboot the system](https://github.com/sayems/arch.linux.tutorial#reboot-the-system)
+- [Post Installation](https://github.com/sayems/arch.linux.tutorial#post-installation)
+    - [Desktop Environment](https://github.com/sayems/arch.linux.tutorial/#desktop-environment)
+    - [Ricing Arch Linux](https://github.com/sayems/arch.linux.tutorial/wiki/Desktop-Customization)
+    - [Create new user](https://github.com/sayems/arch.linux.tutorial#create-new-user)
+    - [Network Manager and Services](https://github.com/sayems/arch.linux.tutorial#network-manager-and-services)
+    - [Enable multilib repository](https://github.com/sayems/arch.linux.tutorial#enable-multilib-repository)
+    - [Sound](https://github.com/sayems/arch.linux.tutorial/wiki/Sound-System)
+    - [Network Manager](https://github.com/sayems/arch.linux.tutorial/wiki/NetworkManager)
+    - [Bluetooth](https://github.com/sayems/arch.linux.tutorial/wiki/Bluetooth)
+    - [Printer](https://github.com/sayems/arch.linux.tutorial/wiki/Printer)
+    - [Scanner](https://github.com/sayems/arch.linux.tutorial/wiki/Scanner)
+    - [Yay –AUR Helper](https://github.com/sayems/arch.linux.tutorial/wiki/Yay-%E2%80%93-Yet-another-Yaourt)
+    - [Network File System (NFS)](https://github.com/sayems/arch.linux.tutorial/wiki/Network-File-System-(NFS))
+    - [Samba](https://github.com/sayems/arch.linux.tutorial/wiki/Samba)
+    - [Beautify Grub 2 Boot Loader](https://github.com/sayems/arch.linux.tutorial/wiki/Customize-Bootloader)
+- Extra
+    - [Hibernation](https://github.com/sayems/arch.linux.tutorial/wiki/Hibernation)
+- [Troubleshooting](https://github.com/sayems/arch.linux.tutorial/wiki/Restore-the-GRUB-Bootloader)
+    - [Grub](https://github.com/sayems/arch.linux.tutorial/wiki/Restore-the-GRUB-Bootloader)
+- Development
+    - [Java](https://github.com/sayems/arch.linux.tutorial/wiki/Java-Development)
+    - [Python](https://github.com/sayems/arch.linux.tutorial/wiki/Python-Development)
+    - [Golang](https://github.com/sayems/arch.linux.tutorial/wiki/Go-Development)
+    - [Vim](https://github.com/sayems/arch.linux.tutorial/wiki/Vim)
+    - [Docker](https://github.com/sayems/arch.linux.tutorial/wiki/Docker)
+    - [MySQL](https://github.com/sayems/arch.linux.tutorial/wiki/MySQL)
+- DevOps
+    - [LXC/LXD](https://github.com/sayems/arch.linux.tutorial/wiki/LXC-and-LXD)
+    - [Vagrant](https://github.com/sayems/arch.linux.tutorial/wiki/Vagrant)
+    - [Ansible](https://github.com/sayems/arch.linux.tutorial/wiki/Ansible)
+    - [Amazon Web Services (AWS)](https://github.com/sayems/arch.linux.tutorial/wiki/Amazon-Web-Services-(AWS))
+  
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
 
 Here's a screenshot of my desktop, built just the way I want it
 
@@ -46,728 +85,534 @@ Here's a screenshot of my desktop, built just the way I want it
 
 ![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/desktop-preview.png)
 
-## Prepare the hard drives
 
-Run this command:
-```bash
-root@arch ~ # cfdisk /dev/sda
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+
+Bootable USB Installer
+--
+### Download the ISO
+First of all, you need the Arch Linux image, that can be downloaded from the [Official Website](https://www.archlinux.org/download/).
+
+> Arch Linux requires a x86_64 (i.e. 64 bit) compatible machine with a minimum of 512 MB RAM and 800 MB disk space for a minimal installation. However, it is recommended to have 2 GB of RAM and at least 20 GB of storage for a GUI to work without hassle.
+
+After that, you should create the bootable flash drive with the Arch Linux image.
+
+### Linux
+
+If you're on a Linux distribution, you can use the `dd` command for it. Like:
+```sh
+$ dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync && sync
+```
+> Note that you need to update the `of=/dev/sdx` with your USB device location (it can be discovered with the `lsblk` command).
+
+Otherwise, if you're on Windows, you can follow this [tutorial](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows).
+
+&nbsp;
+
+### MacOS
+
+First, you need to identify the USB device. Open  ```/Applications/Utilities/Terminal```  and list all storage devices with the command:
+```
+$ diskutil list
+```
+Your USB device will appear as something like  ```/dev/disk4 (external, physical)```. Verify that this is the device you want to erase by checking its name and size and then use its identifier for the commands below instead of /dev/disk4.
+
+A USB device is normally auto-mounted in macOS, and you have to unmount (not eject) it before block-writing to it with  ```dd```. In Terminal, do:
+```
+$ diskutil unmountDisk /dev/disk4
+```
+Now copy the ISO image file to the device. The  ```dd```  command is similar to its Linux counterpart, but notice the 'r' before 'disk' for raw mode which makes the transfer much faster:
+```
+# sudo dd if=/Users/sayem/Downloads/archlinux-2019.04.01-x86_64.iso  of=/dev/rdisk4 bs=1m
+```
+This command will run silently. To view progress, send SIGINFO by pressing  ```Ctrl+t```. Note  ```diskX```  here should not include the  ```s1```  suffix, or else the USB device will only be bootable in UEFI mode and not legacy. After completion, macOS may complain that "The disk you inserted was not readable by this computer". Select 'Ignore'. The USB device will be bootable.
+
+
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+BIOS
+--
+We'll install Arch Linux on UEFI mode, so you should check your bios settings. Boot into your hardware settings or BIOS or UEFI settings. Then check following settings. It can have different names and different keyboard shortcuts to reach it.
+
+-   Disable  `Secure Boot`
+-   Disable  `Launch CSM`  or  `Legacy Support`
+-   Set  `Boot Mode`  to  `UEFI`
+-   Enable  `USB Boot`
+-   Set  USB  Disk as boot priority
+
+
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+Pre-installation
+--
+
+### Set Keyboard Layout
+Arch Linux standard boots into an US keyboard layout. Many of us do not have to do anything. Just check the main keyboard keys and see if they all work.
+
+&nbsp;
+
+### Check boot mode
+To check if the UEFI mode is enabled, run:
+```
+# ls /sys/firmware/efi/efivars
+```
+If the directory does not exists, the system may be booted in BIOS.
+
+&nbsp;
+
+### Internet Connection
+
+If you are connected via Ethernet, you can test the connectivity by pinging ```google```:
+```
+ping www.google.com -c 3
+```
+```
+PING www.google.com (172.217.12.164) 56(84) bytes of data.
+64 bytes from lga25s62-in-f4.1e100.net (172.217.12.164): icmp_seq=1 ttl=56 time=5.26 ms
+64 bytes from lga25s62-in-f4.1e100.net (172.217.12.164): icmp_seq=2 ttl=56 time=7.86 ms
+64 bytes from lga25s62-in-f4.1e100.net (172.217.12.164): icmp_seq=3 ttl=56 time=10.4 ms
+
+--- www.google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 6ms
+rtt min/avg/max/mdev = 5.256/7.841/10.405/2.104 ms
 ```
 
-- sda5 - swap **2GB**
-- sda6 - root **18GB** (bootable)
+&nbsp;
 
-![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/partition.png)
 
-```bash
-root@arch ~ # mkfs.ext4  /dev/sda6
-root@arch ~ # mount /dev/sda6 /mnt
+### Configure the system time
+
+Once connected to the internet, it is important to synchronize the system time. This can be done by turning on the **Network Time Protocol (NTP)**. We will first check is the service is working and if not, we will activate it.
+
+You can check the NTP service as below:
+```
+sh-4.3# timedatectl status
 ```
 
-```bash
-root@arch ~ # mkswap /dev/sda5
-root@arch ~ # swapon /dev/sda5
+If the service is not working, you can set up it as below
+```
+sh-4.3# timedatectl set-ntp true
 ```
 
-## Installing System Base
+&nbsp;
 
+### Partitioning
+
+If you have multiple hard-drives in your machine, please unplug it now so you don’t end up formatting them by mistake. Plug only the one that you will format to install Arch Linux on it.
+
+I have 1TB of storage with 8 partitions, described on the following table below: (I will create two partitions **```/dev/sdc5```** and **```/dev/sdc6```** to install Arch Linux)
+
+| Partition | Name                         | File System | Size  |
+|-----------|------------------------------|-------------|-------|
+| /dev/sdc1 | EFI System Partition         |    fat32    |  200M |
+| /dev/sdc2 | Macintosh HD                 |     apfs    |  558G |
+| /dev/sdc3 | Ubuntu                       |     ext4    |  70G  |
+| /dev/sdc4 | Linux Swap                   |  linux-swap |   2G  |
+| /dev/sdc5 | Arch Linux                   |     ext4    |  67G  |
+| /dev/sdc6 | Microsoft Reserved Partition |   unknown   |  16M  |
+| /dev/sdc7 | Windows 10                   |     ntfs    |  232G |
+| /dev/sdc8 | Windows Recovery Environment |     ntfs    |  481M |
+
+&nbsp;
+
+I'll use **```cfdisk```** to create **```sdc4```** and **```sdc5```** partitions:
+
+```bash
+root@arch ~ # cfdisk /dev/sdc
+```
+1. First, select the option **New** in the **cfdisk** menu.
+2. Now specify the size of the partition you want to create. In my example:
+	- **```sdc4```** - allocate **2G** for swap memory
+    - **```sdc5```** - allocate **67G** for **```/```**
+3. To save the changes, select the option **write**  in the **cfdisk** menu.
+4. Print the partition table and verify the new partition  using ```fdisk -l /dev/sdc``` command.
+
+Now that our partitions have been created, we can format it as below: 
+
+```bash
+root@arch ~ # mkfs.ext4  /dev/sdc5
+```
+Now we should mount the partitions which have been created and formatted so that Arch Linux can point to them. We will mount the root partition to the `/mnt` folder.
+```bash
+root@arch ~ # mount /dev/sdc5 /mnt
+```
+
+The process for swap partition is slight different:
+
+```bash
+root@arch ~ # mkswap /dev/sdc4
+root@arch ~ # swapon /dev/sdc4
+```
+
+&nbsp;
+
+### Enabling a specific mirror
+
+Before installation, is recommended to select the best mirror servers. So open the file ```/etc/pacman.d/mirrorlist``` (using ```nano``` or ```vi``` to do that) and move the best mirror to the top of the file.
+
+```
+root@arch ~ # nano /etc/pacman.d/mirrorlist
+```
+```
+Server = https://arch.mirror.constant.com/$repo/os/$arch
+Server = https://mirror.wdc1.us.leaseweb.net/archlinux/$repo/os/$arch
+Server = https://mirrors.rit.edu/archlinux/$repo/os/$arch
+Server = https://archlinux.olanfa.rocks/$repo/os/$arch
+Server = https://arch.mirror.square-r00t.net/$repo/os/$arch
+```
+
+> **Tip**: That  [link](https://www.archlinux.org/mirrorlist/)  generates a mirror list based on your location, you can use them as reference.
+
+
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+
+Installation
+--
+Now that the mirrors are already set, we can use `pacstrap` to install the Arch Linux bases system with the command below:
 
 ```bash
 root@arch ~ # pacstrap /mnt base base-devel
 ```
 
-## Configuration the Installation
+&nbsp;
 
+### Generate fstab
+
+Generate a fstab with the `genfstab` script to define how disk partitions, block devices or remote file systems are mounted into the filesystem.
+```
+# genfstab -p /mnt >> /mnt/etc/fstab
+```
+
+&nbsp;
+
+### Chroot
+
+We can use the `chroot` command to access your newly-installed operating system.
 ```bash
 root@arch ~ # arch-chroot /mnt
 ```
 
-```bash
-sh-4.3# ip link
-sh-4.3#  systemctl enable dhcpcd@enp3s0.service
+> Now, if you want to install some package, do it with `pacman -S <package_name>`
+
+&nbsp;
+
+### Check pacman keys
+```
+# pacman-key --init
+# pacman-key --populate archlinux
 ```
 
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+
+
+Configure System
+--
+
+&nbsp;
+
+
+### Configure network
+If you want your OS be able to have automatically an IP address for your router or the dhcp server of your network, it is import to activate the dhcpd service at the system startup
+```
+# systemctl enable dhcpcd
+Created symlink /etc/systemd/system/multi-user.target.wants/dhcpcd.service → /usr/lib/systemd/system/dhcpcd.service.
+```
+
+&nbsp;
+
+
+### Locale and Language
+
+We can now select the default language of the system by editing the ```/etc/locale.gen``` file
 ```bash
 sh-4.3# nano /etc/locale.gen
+```
+On the list of languages, uncomment the one that you need. I will uncomment **```en_US.UTF-8 UTF-8```**. 
+
+Now we need generate the locale information with the command below
+```bash
 sh-4.3# locale-gen
+```
+Now we must set the **LANG** variable in `/etc/locale.conf`
+```bash
 sh-4.3# echo LANG=en_US.UTF-8 > /etc/locale.conf
 sh-4.3# export LANG=en_US.UTF-8
 ```
 
+&nbsp;
+
+
+#### Timezone
+
+Create a symbolic link with your timezone (to check available timezones, see the files/folders in  `/usr/share/zoneinfo/`)
 ```
-# ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
-# hwclock --systohc --localtime
+# ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 ```
 
+&nbsp;
+
+
+#### Hardware Clock
 ```
-# echo USER_NAME > /etc/hostname
+# hwclock --systohc --utc
 ```
 
+&nbsp;
+
+### Hostname
+I am going to use ```linux``` as a hostname:
+```
+# echo linux > /etc/hostname
+```
+> Change `linux` to your hostname (Computer Name)
+
+After that, open the file `/etc/hosts` and add the following lines to ```/etc/hosts``` 
+```
+127.0.0.1        localhost.localdomain         localhost
+::1              localhost.localdomain         localhost
+127.0.1.1        linux.localdomain        	   linux
+```
+> **Remember** to change the `myhostname` to your own)
+
+&nbsp;
+
+#### Nameservers
+
+Check the DNS again (using Google DNS). Open  `/etc/resolv.conf`  and write:
+
+```bash
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
+&nbsp;
+
+### Create root password
+
+To create root password, type
 ```bash
 sh-4.3# passwd  
 ```
 
+&nbsp;
+
+
+###  Locating the EFI partition
+The first important thing to do for installing **Grub** on **Arch Linux** is to locate the **EFI** partition.  
+Let’s run the following command in order to locate this partition:
+  ```
+sh-4.3# fdisk -l
+```
+We need to check the partition marked as **EFI System**
+
+After that, we need to mount this partition, for example, on ```/boot/efi```:
+
 ```bash
-sh-4.3# pacman -S grub os-prober
-sh-4.3# grub-install /dev/sda
+sh-4.3# mkdir /boot/efi
+sh-4.3# mount /dev/sdc1 /boot/efi
+```
+
+&nbsp;
+
+
+### Install the bootloader 
+
+> If you already have another Linux Distribution installed in your system, you can skip this section and update the Grub from that distribution to recognize Arch Linux.
+> For example, you can run ```sudo update-grub```  from Ubuntu  to include Arch Linux in its Grub bootloader
+
+In order to install the bootloader, we need to install the following packages ```grub```, ```os-prober``` and ```efibootmgr```. Grub is boot manager and os-prober  detects if there are other operating systems installed on the system.
+```
+sh-4.3# pacman -S grub os-prober efibootmgr
+```
+Now install the grub on the disk using the command below:
+```
+sh-4.3# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+```
+Create  a ```grub.cfg``` file using the command below:
+```
 sh-4.3# mkinitcpio -p linux
+````
+Now we can generate the grub
+```
 sh-4.3# grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## Exit
-```
-sh-4.3# exit out 
-```
-
-```bash
-root@arch ~ # genfstab /mnt >> /mnt/etc/fstab
-```
-
-```bash
-root@arch ~ # umount /mnt
-```
-
-## Reboot the system
-
-```bash
-root@arch ~ #  reboot
-```
-
---
-
-## Setup the system
+&nbsp;
 
 
-##### Setup network, power manager, printer, DNS-SD framework, message bus system
-```
-$ sudo pacman -Sy networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2
-```
+###  Reboot the system
 
-```
-$ systemctl enable NetworkManager
-$ systemctl enable cronie
-$ systemctl enable ntpd
-$ systemctl enable acpid
-$ systemctl enable avahi-daemon
-```
+Exit ```chroot``` environment by pressing Ctrl + D or typing  `exit`
 
-#### Alsa install
-
-```bash
-$ sudo pacman -S alsa-utils alsa-plugins alsa-lib pulseaudio-alsa
-$ sudo pacman -S pavucontrol pulseaudio
+Unmount system mount points:
 ```
-
-#### Open sound manager
+# umount -R /mnt
 ```
-$ alsamixer
+Reboot system:
 ```
-
-#### Toggle mute
+# reboot
 ```
-$ amixer -q set Master toggle
-```
-#### Volume Down
-```
-$ amixer -q set PCM 2- unmute
-```
-#### Volume Up
-```
-amixer -q set PCM 2+ unmut
-```
-
-##### Create new user
-
-```
-# useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash sayem
-# passwd sayem
-```
-
-```
-# EDITOR=nano visudo
-```
-Uncomment this line in this file:
-```
-%wheel ALL=(ALL) ALL
-```
-
-```
-# pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils mesa
-```
-Select Option #2  Nvidia 340xx package
-
-```
-# pacman -S xorg-twm xterm xorg-xclock
-```
-
-Search for Nvidia driver
-```
-# pacman –Ss | grep nvidia
-```
-
-![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/nvidia-search.png)
-
-Install Nvidia
-```
-# pacman -S nvidia-340xx
-# nvidia-xconfig
-```
-
-Install Cinnamon Desktop Enviroment
-```
-# sudo pacman -S cinnamon nemo-fileroller
-# sudo pacman –S gdm
-# sudo systemctl enable gdm
-```
-
-#### OR
-
-Install GNOME Desktop Environment
-
-```
-# sudo pacman -S gnome gnome-extra
-# sudo systemctl enable gdm
-```
+> Remember to remove USB stick on reboot
 
 
-## Enable multilib repository
+&nbsp;
+
+[top](#table-of-contents)
+
+&nbsp;
+
+
+
+Post Installation
+-- 
+
+Now you're on your successfull Arch Linux installation.
+
+Login with your user and follow the next steps.
+
+
+&nbsp;
+
+### Desktop Environment
+
+Now We're gonna install the Window Manager.
+
+I'll show the steps to install [Gnome](https://www.gnome.org/).
+
+First of all, run the installation command with `pacman`:
+```sh
+$ sudo pacman -S gnome gnome-extra
+```
+
+When the installation finishes, enable `gdm` to be started with system on boot:
+```sh
+$ sudo systemctl enable gdm.service
+```
+
+&nbsp;
+
+### Enable ```multilib``` repository
+
+To enable multilib repository, uncomment the  `[multilib]`  section in  `/etc/pacman.conf`:
 ```
 # nano /etc/pacman.conf
 ```
 Scroll down and un-comment the ‘multilib’ repo:
 ```
+#[testing]
+#Include = /etc/pacman.d/mirrorlist
+ 
+[core]
+Include = /etc/pacman.d/mirrorlist
+
+[extra]
+Include = /etc/pacman.d/mirrorlist
+
+#[community-testing]
+#Include = /etc/pacman.d/mirrorlist
+
+[community]
+Include = /etc/pacman.d/mirrorlist
+
+# If you want to run 32 bit applications on your x86_64 system,
+# enable the multilib repositories as required here.
+  
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+
 [multilib]
 Include = /etc/pacman.d/mirrorlist
-```
 
+# An example of a custom package repository. See the pacman manpage for
+# tips on creating your own repositories.
+#[custom]
+#SigLevel = Optional TrustAll
+#Server = file:///home/custompkgs
+```
 ```
 # pacman -Sy
 ```
 
+&nbsp;
 
-## Install Software
 
-```
-# pacman -S firefox, terminator, vlc, skype, synergy, sublime-text
-```
-
-
-### Reboot System
-```
-# reboot
-```
-
-
-# Yaourt
-
-```
-$ sudo gedit /etc/pacman.conf
-```
-
-Add Yaourt repository:
-
-```
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
-```
-run:
-```
-$ pacman -Sy yaourt
-```
-
-
-Install AUR Packages
-
-```
-$ yaourt -S ttf-ms-fonts
-$ yaourt -S fontconfig-ubuntu
-$ yaourt -S freetype2-ubuntu
-$ yaourt -S ttf-noto
-$ yaourt -S ttf-mac-fonts
-$ yaourt -S ttf-tahoma
-$ yaourt -S jdk
-$ yaourt -S intellij-idea-ultimate-edition
-$ yaourt -S ubuntu-themes
-$ yaourt -S spotify
-$ yaourt -S yaourt moka-icon-theme-git
-$ yaourt -S gnome-session-properties
-```
-
-![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/aur-packages.png)
-
-### Yaourt: No space left on device 
-
-```
-sudo nano /etc/yaourtrc
-```
-
-Change yaourt defualt folder to ~/home/tmp folder
-```
-# TMPDIR="/tmp"
-TMPDIR="/home/$USER/tmp"
-```
-
-## How to skip all Yaourt prompts on Arch Linux
-
-[Yaourt](https://wiki.archlinux.org/index.php/yaourt) is probably the best tool to automatically download and install packages from the [Arch User Repository](https://aur.archlinux.org/), also known as AUR. It’s really powerful; however, by default, it prompts you a **LOT** for confirmations of different things, such as checking if you want to install something, if you want to edit the `PKGBUILD`, etc. As a result, Yaourt is pretty annoying if you’re used to the hands-free nature of most other package managers.
-
-As it turns out, there is a file you can create called `~/.yaourtrc` that can change the behavior of Yaourt.
-
-To turn off all of the prompts, type the following into a new file called `~/.yaourtrc`:
-
-```
-NOCONFIRM=1
-BUILD_NOCONFIRM=1
-EDITFILES=0
-```
-
-The first line will skip the messages confirming if you really want to install the package.
-
-The second line will skip the messages asking you if you want to continue the build.
-
-The third and last line will skip the messages asking if you want to edit the `PKGBUILD` files.
-
-When you’re done doing this, Yaourt should now stop being a pain to use. Have fun with your hands-free installs!
-
---
-
-
-### Upgrade Foreign packages
-
-```
-yaourt -Syua
-```
-
---
-
-
-# Getting Started with docker
-
-### Installation
-
-For the normal package a simple
-```bash
-$ sudo pacman -S docker
-```
-is all that is needed.
-
-For the AUR package execute:
-```bash
-$ sudo yaourt -S docker-git
-```
-The instructions here assume yaourt is installed. See [Arch User Repository](https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages) for information on building and installing packages from the AUR if you have not done so before.
-
-### Starting Docker
-
-There is a systemd service unit created for docker. To start the docker service:
-
-```bash
-$ sudo systemctl start docker
-```
-To start on system boot:
-
-```bash
-$ sudo systemctl enable docker
-```
-
-Add user to the docker group
-```bash
-$ sudo usermod -aG docker sayem
-```
-
-Logout and login as the user
-
-## Create a machine
-
-1. Open a command shell or terminal window.
-These command examples shows a Bash shell. For a different shell, such as C Shell, the same commands are the same except where noted.
-
-2. Use docker-machine ls to list available machines.
-In this example, no machines have been created yet.
-
-```bash
-$ docker-machine ls
-NAME   ACTIVE   DRIVER   STATE   URL   SWARM   DOCKER   ERRORS
-```
-
-3. Create a machine.
-
-Run the ```docker-machine create``` command, passing the string ```virtualbox``` to the ```--driver``` flag. The final argument is the name of the machine. If this is your first machine, name it ```default```. If you already have a “default” machine, choose another name for this new machine.
-
-```bash
-$ docker-machine create --driver virtualbox default
-Running pre-create checks...
-Creating machine...
-(staging) Copying /Users/ripley/.docker/machine/cache/boot2docker.iso to /Users/ripley/.docker/machine/machines/default/boot2docker.iso...
-(staging) Creating VirtualBox VM...
-(staging) Creating SSH key...
-(staging) Starting the VM...
-(staging) Waiting for an IP...
-Waiting for machine to be running, this may take a few minutes...
-Machine is running, waiting for SSH to be available...
-Detecting operating system of created instance...
-Detecting the provisioner...
-Provisioning with boot2docker...
-Copying certs to the local machine directory...
-Copying certs to the remote machine...
-Setting Docker configuration on the remote daemon...
-Checking connection to Docker...
-Docker is up and running!
-To see how to connect Docker to this machine, run: docker-machine env default
-```
-
-This command downloads a lightweight Linux distribution [(boot2docker)](https://github.com/boot2docker/boot2docker) with the Docker daemon installed, and creates and starts a VirtualBox VM with Docker running.
-
-4. List available machines again to see your newly minted machine.
-
-```bash
-$ docker-machine ls
-NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER   ERRORS
-default   *        virtualbox   Running   tcp://192.168.99.187:2376           v1.9.1
-```
-5. Get the environment commands for your new VM.
-As noted in the output of the ```docker-machine create``` command, you need to tell Docker to talk to the new machine. You can do this with the ```docker-machine env``` command.
-
-```bash
-$ docker-machine env default
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://172.16.62.130:2376"
-export DOCKER_CERT_PATH="/Users/<yourusername>/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
-# Run this command to configure your shell:
-# eval "$(docker-machine env default)"
-```
-
-6. Connect your shell to the new machine.
-
-```bash
-$ eval "$(docker-machine env default)"
-```
-
-## Run containers
-
-Run a container with ```docker run``` to verify your set up.
-
-1. Use ```docker run``` to download and run ```busybox``` with a simple ‘echo’ command.
-
-```bash
-$ docker run busybox echo hello world
-Unable to find image 'busybox' locally
-Pulling repository busybox
-e72ac664f4f0: Download complete
-511136ea3c5a: Download complete
-df7546f9f060: Download complete
-e433a6c5b276: Download complete
-hello world
-```
-
-2. Get the host IP address.
-
-Any exposed ports are available on the Docker host’s IP address, which you can get using the docker-machine ip command:
-
-```bash
-$ docker-machine ip default
-192.168.99.100
-```
-
-You can create and manage as many local VMs running Docker as you please; just run ```docker-machine create``` again. All created machines will appear in the output of ```docker-machine ls```.
-
---
-
-#Install MySQL
-
-To install MySQL, open terminal and type in these commands:
-
-```
-$ yaourt  mysql 
-```
-select mysql package and install it
-
- Once you have installed MySQL, start it running
- ```
-$ sudo systemctl start mysqld
-```
+### Create new user
 
-Finish up by running the MySQL set up script:
+It is recommended that you create a normal user account
 ```
-$ sudo mysql_secure_installation
+# useradd -m -g users -G wheel,storage,power,lp,network,audio,video,optical -s /bin/bash sayem
 ```
-
-Enable Autostart
-```
-$ sudo systemctl enable mysqld
-```
-
-Install MySQL Workbench
-```
-$ sudo pacman -S mysql-workbench
-```
-
---
-
-# Setup Printer
-
-Install Brother HL-2270DW series driver
-
-```bash
-yaourt -S brother-hl2270dw
-```
-Install Brother MFC-J470DW driver
-```bash
-yaourt -S brother-mfc-j470dw
-```
-
-Install Cups libraries
-
-```bash
-yaourt -S libcups
-pacman -S cups cups-filters ghostscript gsfonts
-```
-
-Enable cups so it starts with system boot
-```bash
-systemctl enable org.cups.cupsd.service
-systemctl daemon-reload
-```
-
-Start CUPS
-```bash
-systemctl start org.cups.cupsd.service
-```
-
-Open the CUPS interface from this URL (http://localhost:631/admin) and log in as root. Here you can add and configure your printer.
-
---
-# Setup Network File System (NFS)
-
-Installation
-```
-$ pacman -S nfs-utils 
-```
-
-Start server
-```
-$ sudo systemctl enable rpcbind.service
-$ sudo systemctl start rpcbind.service
-$ sudo systemctl enable nfs-client.target
-$ sudo systemctl start nfs-client.target
-$ sudo systemctl start remote-fs.target
-```
-
-Manual mounting
-Show the server's exported file systems:
-```
-$ showmount -e DiskStation 
-```
-
-Then mount omitting the server's NFS export root:
-```
-# sudo mount -t nfs DiskStation:/volume1/video /home/sayem/Videos
-```
-(Make sure Videos folder exist in /sayem/home/Videos)
-
---
-
-### Install OpenConnect (Cisco AnyConnect)
-
-Install the networkmanager-openconnect package from the Official repositories
-```
-$ sudo pacman -S networkmanager-openconnect
-```
-
-Download a more up-to-date script that OpenConnect will use to setup routing and DNS information (the only difference, currently, between this script and the one that comes with vpnc is using /usr/sbin/resolvconf instead of /sbin/resolvconf, there should be an AUR package for this eventually):
-
-```
-# wget http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/HEAD:/vpnc-script
-```
-Replace references to /sbin/resolvconf with /usr/bin/resolvconf:
-```
-$ sed -i 's/\/sbin\/resolvconf/\/usr\/bin\/resolvconf/g' vpnc-script
-```
-Make it executable:
-```
-$ chmod +x vpnc-script
-```
-Now run OpenConnect as root with the script downloaded above, and provide the gateway:
-```
-$ sudo openconnect --script ./vpnc-script https://vpn.system.com
-```
-It will ask you to enter GROUP Name:
-```
-Please enter your username and password.
-GROUP: [User|Manager]: 
-```
-then,
+Now we must change the password for the user with the **```passwd```** command
 ```
-Please enter your username and password.
-Username:
-Password:
+# passwd sayem
 ```
-
-Use ctrl-c to close and tear down the vpn connection.
-
---
-
-### Android Development
-
-```bash
-yaourt -S android-studio
-```
-
-```bash
-yaourt -S genymotion
-```
-
-```bash
-sudo pacman -S virtualbox-host-dkms
-````
-
---
-
-### Setup Albert 
-
-#### Create a albert folder 
-```
-$ mkdir -p ~/temp/albert && cd ~/temp/albert
+We must edit the `/etc/sudoers` file with the ```visudo``` command to add the new user :
 ```
-
-#### Download sources
-```bash
-$ wget https://raw.githubusercontent.com/ManuelSchneid3r/albert/master/packaging/linux/arch/PKGBUILD
+# EDITOR=nano visudo
 ```
-
-#### Automatically resolve dependencies with pacman
-```bash
-$ makepkg -s
+Add the new user ```sayem ALL=(ALL) ALL``` to `/etc/sudoers`
 ```
-
-#### install 
-```bash
-$ sudo pacman -U albert-*.pkg.tar.xz
+##
+## User privilege specification
+##
+sayem ALL=(ALL) ALL
+root ALL=(ALL) ALL
 ```
 
-#### Create a autostart program
+&nbsp;
 
-```bash
-$ cd
-$ cp /usr/share/applications/albert.desktop .config/autostart/
-```
 
-Make sure you have gnome-session-properties installed
-
+### Network Manager and services
 ```
-Press & hold    : Alt+F2
-Enter a command : gnome-session-properties
-Click on "Close" Button
+$ sudo pacman -Sy networkmanager-dispatcher-ntpd cronie networkmanager network-manager-applet acpid cups avahi dbus udisks2
 ```
-
-![](https://github.com/sayems/Arch-Linux/blob/master/screenshot/add-albert-autostart.png)
 
 ```
-Name    : Albert
-Command : albert
-Comment : A quick launcher for Linux
-Click on "Add" Button
+$ systemctl enable NetworkManager.service
+$ systemctl start NetworkManager.service
 ```
---
-
-### Beautify Grub 2 Boot Loader by Installing Themes
-
-By default, Arch Linux boot loader grub doesn’t use any theme. You can customize theme. Here’s a simple guide installing Grub2 themes (background, logos, fonts, scroll bar, etc).
-
-**Download Archlinux theme from AUR:**  
-Archxion: [grub2-theme-archxion](https://aur.archlinux.org/packages.php?ID=59370)  
-Archlinux: [grub2-theme-archlinux](https://aur.archlinux.org/packages.php?ID=59643)
-
-```
-$ yaourt -S grub2-theme-archxion
-$ yaourt -S grub2-theme-archlinux
 ```
-
-**Edit your /etc/default/grub and change line:**  
-
+$ systemctl enable cronie.service
+$ systemctl start cronie.service
 ```
-$ sudo subl /etc/default/grub
 ```
-<code>\#GRUB_THEME="/path/to/gfxtheme"  
-to  
-GRUB_THEME="/boot/grub/themes/Archxion/theme.txt"  
-or  
-GRUB_THEME="/boot/grub/themes/Archlinux/theme.txt"</code>
-
-**The resolution the theme was designed to show best at 1024x768:**  
-<code>GRUB_GFXMODE=auto  
-to  
-GRUB_GFXMODE=1024x768</code>  
-
-**Update grub configuration:**  
-<code>\# grub-mkconfig -o /boot/grub/grub.cfg</code>
-
---
-
-### Arch Linux Pacman 
-
-In Arch Linux softwares can be installed easily from the terminal by using pacman and you also use pacman to uninstall them( if you want to install softwares from the AUR, you can use packer). However, most linux softwares always come with many dependencies so if you just use the command pacman -R packagename to remove the application, there will always be a lot of orphan packages left around. The proper command to remove a linux software in Arch Linux should be:
-
+$ systemctl enable ntpd.service
+$ systemctl start cronie.service
 ```
- sudo pacman -Rns packagename 
-``` 
-
-This command will remove the package and its dependencies and all the settings of the application.
-
-If you dont already know this tip, chances that there are still many orphan packages in your Arch linux box. To check if you have any orphan package, use the following command:
-
 ```
- sudo pacman -Qdt
-```  
-
-This command will display a list of orphan packages. To remove these packages, you can use the following command:
-
+$ systemctl enable acpid.service
+$ systemctl start acpid.service
 ```
-sudo pacman -Rns $(pacman -Qdtq) 
 ```
-
-After that, all the orphan dependencies will be wiped out.
-
-Note: In Arch Linux softwares will be updated very frequently so to keep your system clean, you should also use the command sudo pacman -Scc to clean cache and outdated packages. (But only do so after you make sure the new packages are working nicely. If they are not, you still need the old packages to downgrade)
-
---
-
-
-## C# Development
-
-### Setup Visual Studio Code
-
-### Install C# Extension
-
-From inside Visual Studio Code, press ```Ctrl + p``` to bring up the Quick Open bar, and type in ```ext install csharp```. This installs the extension C# for Visual Studio Code [Details for the extension here](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-
-### Build and Run a Project
-
-Open Terminal:
-
+$ systemctl enable avahi-daemon.service
+$ systemctl start avahi-daemon.service
 ```
-$ mkdir ~/vscode
-$ cd ~/vscode
-$ dotnet new
-````
-Now open visual studio code editor
 
-If you get this error message:
-````
-[ERROR] Could not locate an OmniSharp server that supports your Linux distribution.
+&nbsp;
 
-OmniSharp provides a richer C# editing experience, with features like IntelliSense and Find All References.
-It is recommend that you download the version of OmniSharp that runs on Mono using the following steps:
-    1. If it's not already installed, download and install Mono (https://www.mono-project.com)
-    2. Download and untar the latest OmniSharp Mono release from  https://github.com/OmniSharp/omnisharp-roslyn/releases/
-    3. In Visual Studio Code, select Preferences->User Settings to open settings.json.
-    4. In settings.json, add a new setting: "csharp.omnisharp": "/path/to/omnisharp/OmniSharp.exe"
-    4. In settings.json, add a new setting: "csharp.omnisharpUsesMono": true
-    5. Restart Visual Studio Code.
-```
-Download OmniSharp
+[top](#table-of-contents)
 
-```
-$ yaourt -S omnisharp
-```
+&nbsp;
