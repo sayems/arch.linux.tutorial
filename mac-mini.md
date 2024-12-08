@@ -182,8 +182,8 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
 
 2. **Enable and start `NetworkManager`**:
    ```bash
-   systemctl start NetworkManager
    systemctl enable NetworkManager
+   systemctl start NetworkManager
    ```
 
 3. **Install Broadcom WiFi drivers** (if applicable):
