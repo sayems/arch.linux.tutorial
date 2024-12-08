@@ -147,9 +147,9 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
    ```
    Add the following lines:
    ```
-   127.0.0.1        localhost.localdomain         localhost
-   ::1              localhost.localdomain         localhost
-   127.0.1.1        macmini.localdomain           macmini
+   127.0.0.1       localhost
+   ::1             localhost
+   127.0.1.1       arch-mini.localdomain arch-mini
    ```
 
 ---
