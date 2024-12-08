@@ -138,7 +138,7 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
 
 5. **Set the hostname**:
    ```bash
-   echo "macmini" > /etc/hostname
+   echo "linux" > /etc/hostname
    ```
 
 6. **Configure `/etc/hosts`**:
@@ -149,7 +149,7 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
    ```
    127.0.0.1       localhost
    ::1             localhost
-   127.0.1.1       arch-mini.localdomain arch-mini
+   127.0.1.1       linux.localdomain linux
    ```
 
 ---
@@ -177,7 +177,7 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
 
 1. **Install `NetworkManager` and enable DHCP**:
    ```bash
-   pacman -S networkmanager dhcpcd
+   pacman -S networkmanager 
    ```
 
 2. **Enable and start `NetworkManager`**:
@@ -254,7 +254,6 @@ pacman -S xf86-video-intel mesa
 2. **Enable and start GDM (GNOME Display Manager)**:
    ```bash
    systemctl enable gdm
-   systemctl start gdm
    ```
 
 ---
