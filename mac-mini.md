@@ -201,8 +201,6 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
    sudo pacman -S linux-headers
    sudo modprobe wl
    ```
-   modprobe wl
-   ```
 
 ---
 
