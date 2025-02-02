@@ -47,7 +47,7 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
 
 1. **Format the EFI partition**:
    ```bash
-   mkfs.fat -F32 /dev/sda1
+   mkfs.fat -F 32 /dev/sda1
    ```
 
 2. **Format the Root partition**:
@@ -188,7 +188,19 @@ Here is a step-by-step guide to install Arch Linux on a 2012 Mac Mini. This guid
 
 3. **Install Broadcom WiFi drivers** (if applicable):
    ```bash
-   pacman -Sy broadcom-wl
+   pacman -Sy broadcom-wl (If not available)
+   sudo modprobe wl
+   ```
+   Then, install `broadcom-wl-dkms`
+   ```
+   pacman -Sy broadcom-wl-dkms
+   sudo modprobe wl  (If it throw error)
+   ```
+   Then, install `linux-headers`
+   ```
+   sudo pacman -S linux-headers
+   sudo modprobe wl
+   ```
    modprobe wl
    ```
 
